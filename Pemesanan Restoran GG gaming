@@ -17,10 +17,34 @@ class Menu:
     def get_price(self, item_name):
         return self.menu_items.get(item_name, None)
 
-
 def show_main_menu():
     print("\nMenu Utama:")
     print("1. Lihat Daftar Menu")
     print("2. Tambah Pesanan")
     print("3. Lihat Keranjang")
     print("4. Selesai dan Bayar")
+
+def get_user_choice(): 
+    choice = input("Masukkan pilihan (1/2/3/4): ") 
+    return choice 
+
+def calculate_total(cart): 
+    total = 0 
+    for item, quantity in cart.items(): 
+        total += quantity['price'] * quantity['quantity'] 
+    return total 
+def main(): 
+    menu = Menu() 
+    cart = {} 
+
+    while True: 
+        show_main_menu() 
+        choice = get_user_choice() 
+
+        if choice == '1': 
+            menu.display_menu() 
+
+        elif choice == '2': 
+            menu.display menu() 
+            item_name = input("Masukkan nama makanan yang ingin dipesan: ") 
+            quantity = input("Masukkan jumlah pesanan: ")
