@@ -1,0 +1,70 @@
+class Menu:
+    def __init__(self):
+        self.menu_items = {
+            'Nasi Goreng': 20000,
+            'Mie Goreng': 18000,
+            'Ayam Bakar': 25000,
+            'Es Teh': 5000,
+            'Jus Jeruk': 10000
+        }
+
+    def display_menu(self):
+        print("\nDaftar Menu:")
+        for item, price in self.menu_items.items():
+            print(f"{item}: Rp{price}")
+        print()
+
+    def get_price(self, item_name):
+        return self.menu_items.get(item_name, None)
+
+
+def show_main_menu():
+    print("\nMenu Utama:")
+    print("1. Lihat Daftar Menu")
+    print("2. Tambah Pesanan")
+    print("3. Lihat Keranjang")
+    print("4. Selesai dan Bayar")
+
+def get_user_choice(): 
+    choice = input("Masukkan pilihan (1/2/3/4): ") 
+    return choice 
+
+def calculate_total(cart): 
+    total = 0 
+    for item, quantity in cart.items(): 
+        total += quantity['price'] * quantity['quantity'] 
+    return total 
+def main(): 
+    menu = Menu() 
+    cart = {} 
+
+    while True: 
+        show_main_menu() 
+        choice = get_user_choice() 
+
+        if choice == '1': 
+            menu.display_menu() 
+
+        elif choice == '2': 
+            menu.display menu() 
+            item_name = input("Masukkan nama makanan yang ingin dipesan: ") 
+            quantity = input("Masukkan jumlah pesanan: ") 
+
+            try: 
+                quantity = int(quantity) 
+                if quantity <= 0: 
+                    print("Jumlah pesanan tidak valid. Silakan coba lagi.") 
+                    continue 
+
+                price = menu.get_price(item_name) 
+                if price is not None: 
+                    if item_name in cart: 
+                        cart[item_name]['quantity'] += quantity 
+                    else: 
+                        cart[item_name] = {'price': price, 'quantity': quantity} 
+
+                    print(f"{quantity} {item_name} berhasil ditambahkan ke keranjang.") 
+                else: 
+                    print("Menu tidak ditemukan. Silakan coba lagi.") 
+            except ValueError: 
+                print("Jumlah tidak valid. Silakan masukkan angka.") 
