@@ -70,3 +70,26 @@ def main():
             except ValueError: 
 
                 print("Jumlah tidak valid. Silakan masukkan angka.") 
+
+        elif choice == '3': 
+            if len(cart) == 0: 
+                print("Keranjang kosong.") 
+            else: 
+                print("\nKeranjang Pesanan:") 
+                for item, details in cart.items(): 
+                    print(f"{item}: {details['quantity']} x Rp{details['price']}") 
+                    total = calculate_total(cart) 
+                    print(f"\nTotal Harga: Rp{total}")
+
+        elif choice == '4':
+          if len(cart) == 0:
+          print("Keranjang kosong. Tidak ada yang harus dibayar.") 
+            else: 
+                total = calculate_total(cart) 
+                print(f"\nTotal yang harus dibayar: Rp{total}") 
+                print("Terima kasih telah memesan. Selamat menikmati makanan Anda!") 
+           break 
+           else: 
+            print("Pilihan tidak valid. Silakan coba lagi.") 
+   if __name__ == "__main__": 
+         main() 
