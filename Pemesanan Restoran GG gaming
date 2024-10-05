@@ -48,3 +48,25 @@ def main():
             menu.display menu() 
             item_name = input("Masukkan nama makanan yang ingin dipesan: ") 
             quantity = input("Masukkan jumlah pesanan: ")
+
+        try: 
+            quantity = int(quantity) 
+            if quantity <= 0: 
+            print("Jumlah pesanan tidak valid. Silakan coba lagi.") 
+            continue
+            price = menu.get_price(item_name) 
+            if price is not None
+                if item_name in cart: 
+                    cart[item_name]['quantity'] += quantity 
+                else: 
+                    cart[item_name] = {'price': price, 'quantity': quantity} 
+
+                print(f"{quantity} {item_name} berhasil ditambahkan ke keranjang.") 
+
+                else: 
+
+                    print("Menu tidak ditemukan. Silakan coba lagi.") 
+
+            except ValueError: 
+
+                print("Jumlah tidak valid. Silakan masukkan angka.") 
