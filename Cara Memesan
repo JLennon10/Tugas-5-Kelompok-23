@@ -24,3 +24,13 @@ def show_main_menu():
     print("2. Tambah Pesanan")
     print("3. Lihat Keranjang")
     print("4. Selesai dan Bayar")
+
+def get_user_choice(): 
+    choice = input("Masukkan pilihan (1/2/3/4): ") 
+    return choice 
+
+def calculate_total(cart): 
+    total = 0 
+    for item, quantity in cart.items(): 
+        total += quantity['price'] * quantity['quantity'] 
+    return total 
