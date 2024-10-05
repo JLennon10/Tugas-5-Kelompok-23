@@ -1,0 +1,26 @@
+class Menu:
+    def __init__(self):
+        self.menu_items = {
+            'Nasi Goreng': 20000,
+            'Mie Goreng': 18000,
+            'Ayam Bakar': 25000,
+            'Es Teh': 5000,
+            'Jus Jeruk': 10000
+        }
+
+    def display_menu(self):
+        print("\nDaftar Menu:")
+        for item, price in self.menu_items.items():
+            print(f"{item}: Rp{price}")
+        print()
+
+    def get_price(self, item_name):
+        return self.menu_items.get(item_name, None)
+
+
+def show_main_menu():
+    print("\nMenu Utama:")
+    print("1. Lihat Daftar Menu")
+    print("2. Tambah Pesanan")
+    print("3. Lihat Keranjang")
+    print("4. Selesai dan Bayar")
